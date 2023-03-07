@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- UI Template for Petrosoft Ltd!-->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Petrosoft Gas Depot </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/header-icon.png">
+    <link rel="stylesheet" href="vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start (Logo here)
+        ***********************************-->
+        <div class="nav-header bg-success">
+            <a href="index-2.html" class="brand-logo">
+
+
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger ">
+                    <span class="line bg-success"></span><span class="line bg-success"></span><span
+                        class="line bg-success"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+    <!--**********************************
+        Search bar start
+    ***********************************-->
+
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify" style="color: #589650;"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+     <!--**********************************
+        Main wrapper ends
+    ***********************************-->
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+     <!--**********************************
+        count down timer/ Online status / profile dropdown start
+    ***********************************-->
+                                <p class="mt-3 mr-3" style="color:green"> 0:0:22 sec </p>
+                                <p class="mt-3" style="color:red">Offline</p>
+                                <a class="nav-link">
+                                    <i class="mdi mdi-wifi-off" style="color:red"></i>
+                                </a>
+                            </li>
+                            //
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="profile.html" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Profile </span>
+                                    </a>
+
+                                    <a href="index.html" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Logout </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--**********************************
+        count down timer / online status/profile dropdown ends
+    ***********************************-->
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav bg-success" id="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first" style="color: black;font-weight:bold">RETAIL SALES </li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-single-04" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Retail Sales</span></a>
+                        <ul aria-expanded="false">
+                            <li style="color: black;"><a href="dashboard.html" style="color: black;">Sale Gas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label first" style="color: black;font-weight:bold"> SALES REPORT </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false" style="color: black;"><i
+                                class="icon icon-globe-2icon icon-globe-2" style="color: black;"></i><span
+                                class="nav-text" style="color: black;">Sales Report</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="shiftsales-report.html" style="color: black;">Sales Report</a></li>
+                            <li><a href="detailed_sales_report.html" style="color: black;">Detailed Sales Report</a>
+                            </li>
+                            <li><a href="customers.html" style="color: black;">Customers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label" style="color: black;font-weight:bold">DEALEAR SALES</li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-app-store" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Dealer's </span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="dealers-dashboard.html" style="color: black;">Dealer Sale Gas</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"
+                                    style="color: black;">Manage Dealer's</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="add-dealer.html" style="color: black;">Add Dealer's</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="all-dealers.html" style="color: black;">Manage Dealer's Profile</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label" style="color: black;font-weight:bold">INVENTORY SALES</li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-world-2" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Inventory</span></a>
+                        <ul aria-expanded="false">
+
+                            <li><a href="accessories.html" style="color: black;">Sale Accessories</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"
+                                    style="color: black;">Manage
+                                    Accessories</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="add_accessories.html" style="color: black;">Add an Accessories</a></li>
+                                    <li><a href="add_categories.html" style="color: black;">Add new Category</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="accessories_report.html" style="color: black;">Accessories Report</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body" style="background-color: #589650;">
+            <div class="container-fluid">
+                <!--**********************************
+                Adjustable nav top-menu hide/show start
+             ***********************************-->
+                <div class="row page-titles mx-0 bg-success" style=" padding: left-150px,right-150px; display:none;"
+                    id="topmenu">
+
+                    <div class="col-sm-2">
+
+                    </div>
+                    <div class="col-sm-2 dropdown">
+
+                        <img src="images/cynlinder.png" alt="" srcset=""
+                            style="border-radius:50px;background-color:white;">
+                        <p style="color:black; font-weight:bold">Retail Sales</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+                                <li><a href="dashboard.html" style="color: black;">Sell Gas</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/dll.jpg" alt="" srcset="" style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Dealer Sales</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+
+                                <li><a href="#" style="color: black;">Dealer Sale Gas</a></li>
+                                <li>
+                                    <a href="#" style="color: black;">Add Dealer's</a>
+                                </li>
+                                <li><a href="#" style="color: black;">View a Dealer's Report</a></li>
+
+                                <li><a href="#" style="color: black;">Dealer's Sales Report</a></li>
+                            </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/buy.jpg" alt="" srcset="" style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Inventory Purchase</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+                                <li><a href="#" style="color: black;">Sell Accessories</a></li>
+                                <li><a href="#" style="color: black;">Add Category Accessories</a></li>
+                                <li><a href="shiftsales-report.html" style="color: black;">Inventory Report</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/sales-icon.png" alt="" srcset=""
+                            style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Sales Report</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+
+                                <li><a href="shiftsales-report.html" style="color: black;">Sales Report</a></li>
+                                <li><a href="#" style="color: black;">Detailed Sales Report</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+
+                </div>
+ <!--**********************************
+        Adjustable menu ends
+    ***********************************-->
+ <!--**********************************
+       content body start here
+    ***********************************-->
+
+                <div class="row">
+                    <div class="col-xl-8 col-xxl-8 col-lg-6 col-sm-6">
+                        <div class="card pt-3">
+                            <div class="card-header">
+                                <h5 class="card-title pb-4">Access Gas Station Ibadan</h5>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="wizard">
+                                    <div class="wizard-inner">
+                                        <div class="connecting-line"></div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
+                                                    aria-expanded="true"><span class="round-tab">1 </span> <i
+                                                        class="pl-4">Initiate</i></a>
+                                            </li>
+                                            <li role="presentation" class="disabled">
+                                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab"
+                                                    aria-expanded="false"><span class="round-tab">2</span> <i
+                                                        class="pl-4">Pricing</i></a>
+                                            </li>
+                                            <li role="presentation" class="disabled">
+                                                <a href="#step3" data-toggle="tab" aria-controls="step3"
+                                                    role="tab"><span class="round-tab">3</span> <i
+                                                        class="pl-4">Payment</i></a>
+                                            </li>
+                                            <li role="presentation" class="disabled">
+                                                <a href="#step4" data-toggle="tab" aria-controls="step4"
+                                                    role="tab"><span class="round-tab">4</span> <i class="pl-4">Confirm
+                                                    </i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <form role="form" action="index.html" class="login-box">
+                                        <div class="tab-content" id="main_form">
+                                            <div class="tab-pane active" role="tabpanel" id="step1">
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+                                                        <h3> Product </h3>
+                                                        <center>
+                                                            <div class="card-header">
+                                                                <h4 class="card-title"> Item </h4>
+                                                            </div>
+
+                                                            <div class="basic-form">
+    <!--**********************************
+       step form start
+    ***********************************-->
+                                                                <form>
+                                                                    <div class="form-group">
+   <!--**********************************
+        product start
+    ***********************************-->
+                                                                        <select class="form-control form-control-lg">
+                                                                            <option disabled> Product </option>
+                                                                            <option> LPG GAS </option>
+                                                                            <option disabled>Retail Product </option>
+                                                                            <option> 12Kg [Bal 23,0000]</option>
+                                                                            <option> 22Kg [Bal 23,0000]</option>
+                                                                            <option> 30Kg [Bal 23,0000] </option>
+                                                                            <option> 12Kg [Bal 23,0000] </option>
+                                                                        </select>
+
+                                                                    </div>
+     <!--**********************************
+        Product ends
+    ***********************************-->
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title"> Select Nozzle </h4>
+                                                                    </div>
+
+
+     <!--**********************************
+        nozzle select  start
+    ***********************************-->
+                                                                    <div class="form-group">
+                                                                        <select class="form-control form-control-lg">
+                                                                            <option> Pump 10A on Tank A </option>
+
+                                                                        </select>
+                                                                    </div>
+    <!--**********************************
+        nozzle  select ends
+    ***********************************-->
+     <!--**********************************
+        price sold per kg(note this is hidden) start
+    ***********************************-->
+                                                                    <input type="text" hidden class="form-control"
+                                                                        name="price" value="900">
+     <!--**********************************
+        price sold per kg ends
+    ***********************************-->
+                                                                </form>
+                                                            </div>
+                                                        </center>
+                                                    </div>
+                                                </div>
+    <!--**********************************
+        next button start
+    ***********************************-->
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type="button" class="default-btn next-step">Continue to
+                                                            next step</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step2">
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+                                                        <h3> Dealer </h3>
+                                                        <center>
+                                                            <div class="form-group">
+                                                                <select class="form-control form-control-lg">
+                                                                    <option> Ada Jesus Gas Dealer </option>
+                                                                    <option> Opxion Gas Dealer </option>
+                                                                    <option> Dexel Gas Dealer </option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="card-body">
+                                                                <div class="basic-form">
+
+    <!--**********************************
+       kg of gas start
+    ***********************************-->
+                                        <div class="form-group">
+                                        <label style="display: block;">Kg Of Gas</label>
+                                              <input maxlength="100" type="number"  required="required" name="quantity" min="1" max="100" auto-complete="off" value="" step="1" class="kg-textfield" placeholder="0.00" />
+                                         
+                                        </div>
+
+   <!--**********************************
+        kg of gas ends
+    ***********************************-->
+                                                                    <input type="text" hidden class="form-control"
+                                                                        name="price" value="900">
+
+                                                                    <!--**********************************
+        Amount start
+    ***********************************-->
+             <div class="card-header">
+                 <h4 class="card-title">Amount</h4>
+             </div>
+          <div class="form-group">
+             <label class="col-sm-3 col-form-label " style=" display: inline-block;text-align:right;font-size:2.6em">₦</label>
+                <input required="required" class="text-center text-giant total" placeholder="0.00" style="display: inline-block;" />
+          </div>
+   <!--**********************************
+        Amount ends
+    ***********************************-->
+         <div class="card-header">
+
+     <!--**********************************
+       Mode Of Payment start
+    ***********************************-->
+         <h4 class="card-title">Mode of Payment </h4>
+                </div>
+             <div class="card-body">
+            <div class="basic-form">
+         <div class="form-group">
+      <!--**********************************
+        By Cash start
+    ***********************************-->
+        <label class="radio-inline" style="margin-left: 20px;">
+            <input type="radio" onclick=" checkButton()" name="optradio" id="cash" value="cash"> Cash
+         </label>
+
+     <!--**********************************
+        By cash ends 
+    ***********************************-->
+
+
+    <!--**********************************
+       By Transfer start
+    ***********************************-->
+        <label class="radio-inline" style="margin-left: 20px;">
+            <input type="radio" onclick=" checkButton()" name="optradio" id="transfer" value="transfer"> Transfer
+        </label>
+    <!--**********************************
+        By Transfer ends
+    ***********************************-->
+
+
+     <!--**********************************
+        By POS start
+    ***********************************-->
+        <label class="radio-inline" style="margin-left: 20px;">
+          <input type="radio" onclick=" checkButton()" name="optradio" id="pos" value="pos"> POS
+        </label>
+    <!--**********************************
+        By POS ends
+    ***********************************-->
+
+
+    <!--**********************************
+        by Multiple  start
+    ***********************************-->
+
+                     <label class="radio-inline" style="margin-left: 20px;">
+                     <input type="radio" onclick=" checkButton()" name="optradio" id="multiple" value="multiple"> Multiple
+                </label>
+             </div>
+             <div class="alert alert-danger alert-dismissible alert-alt fade show" id="error" style="display: none;">
+                <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                </button>
+                <strong>Wait!</strong> Error Made in Entry.
+            </div>
+     <!--**********************************
+        by multiple start
+    ***********************************-->
+
+    <!--**********************************
+        Choose Prefer Bank to transfer to. (Shows if transfer is selected ) start
+    ***********************************-->
+             <div id="transferoption" style="display: none;">
+                     <h6> Choose Preferred Transfer Account </h6>
+                     <center>
+
+
+                 <div class="form-group">
+                    <select class="form-control form-control-lg">
+                         <option> Access Bank (Main Account) </option>
+                         <option> FCMB (Sub Station Account) </option>
+                         <option> PalmPay(Auxiliary Account) </option>
+                     </select>
+                </div>
+            </div>
+    <!--**********************************
+        Prefer Bank Account ends here
+    ***********************************-->
+
+     <!--**********************************
+        Choose Prefer POS to send to. (Shows if POS is selected ) start
+    ***********************************-->
+
+                        <div id="posoption" style="display: none;">
+                            <h6> Choose Preferred POS Account</h6>
+                            <center>
+                             <div class="form-group">
+                                <select  class="form-control form-control-lg">
+                                    <option> POS 1 (PALMPAY)</option>
+                                    <option> POS 2 (MONIEPOINT) </option>
+                                </select>
+                            </div>
+                         </div>
+ <!--**********************************
+        Choose Prefer POS to send to ends
+    ***********************************-->
+    <!--**********************************
+        Choose Prefer multiple to send to start
+    ***********************************-->
+                            <div id="multipleoption" style="display: none;"> <h6> Choose How you wish to pay</h6>
+                                 <center>
+<!--**********************************
+        Choose Prefer Mutiple mode to send to ends
+    ***********************************-->
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label  class="control-label">Mode of Payment</label>
+                                                     <select class="form-control form-control">
+                                                        <option disabled selected> Select Mode of Payment </option>
+                                                        <option onclick=" checkPartPayment()" name="optradio" id="partlycash"> Cash</option>
+                                                         <option onclick=" checkPartPayment()" name="optradio" id="partlytransfer">  Transfer </option>
+                                                          <option onclick=" checkPartPayment()" name="optradio" id="partlypos">POS</option>
+                                                     </select>
+                                         </div>
+                                    </div>
+                                   
+<!--**********************************
+        Choose Prefer Mutiple mode to send to ends
+    ***********************************-->
+                                        <div class="col-5"   id="partlytransferoption" style="display: none;">
+                                           <div class="form-group">
+                                             <label   class="control-label">Bank Type</label>
+                                                <select class="form-control form-control">
+                                                  <option> Access Bank </option>
+                                                   <option> FCMB </option>
+                                                    <option> PalmPay</option>
+                                                </select>
+                                            </div>
+                                         </div>
+                                        <div class="col-5" id="partlyposoption" style="display: none;">
+                                            <div class="form-group">
+                                                 <label class="control-label"> POS </label>
+                                                     <select class="form-control form-control">
+                                                          <option> POS 1 (PALMPAY) </option>
+                                                          <option> POS 2 (MONIEPOINT)</option>
+                                                     </select>
+                                            </div>
+                                        </div>
+
+              <div class="col-3">
+                     <div class="form-group">
+                         <label class="control-label">Amount to Pay</label>
+                           <input type="number" class="form-control deduct" />
+                     </div>
+                    </div>
+                                     <div class="h_line mt-2 mb-4">  </div>
+               </div>
+                 <div class="row">
+                   <div class="col-4">
+                        <div class="form-group">
+                          <label class="control-label">Mode of Payment</label>
+                              <select class="form-control form-control">
+                                <option disabled selected> Select Mode of Payment </option>
+                                <option onclick=" checkPartPaymentTwo()" name="optradio" id="partlycashTwo"> Cash</option>
+                                <option onclick=" checkPartPaymentTwo()" name="optradio" id="partlytransferTwo">  Transfer </option>
+                                 <option onclick=" checkPartPaymentTwo()" name="optradio" id="partlyposTwo">POS</option>
+                             </select>
+                        </div>
+                    </div>
+
+
+                           <div class="col-5" id="partlytransferoptionTwo" style="display: none;">
+                                <div class="form-group">
+                                    <label class="control-label">Bank Type</label>
+                                         <select class="form-control form-control">
+                                            <option> Access Bank </option>
+                                             <option> FCMB </option>
+                                             <option> PalmPay </option>
+                                           </select>
+                                 </div>
+                             </div>
+
+
+
+                 <div class="col-5" id="partlyposoptionTwo" style="display: none;">
+                    <div class="form-group">
+                         <label  class="control-label">  POS </label>
+                            <select class="form-control form-control">
+                                  <option> POS 1 (PALMPAY)</option>
+                                     <option> POS 2 (MONIEPOINT) </option>
+                             </select>
+                     </div>
+                 </div>
+                 <div class="col-3">
+                    <div class="form-group">
+                         <label class="control-label">Balance Left</label>
+                             <input  class="form-control balance"  type="number" /> </div>
+                     </div>
+                    </div>
+
+                  </div>
+                </div>
+                </center>
+               
+             </div>
+            </div>
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type="button"
+                                                            class="default-btn prev-step">Back</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step skip-btn">Skip</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step">Continue</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step3">
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+
+                                                        <h3> Payment Details </h3>
+
+
+
+                                                        <div class="form-group">
+                                                            <label class="control-label">Enter Customer Name</label>
+                                                            <input maxlength="200" type="text" required="required"
+                                                                class="form-control"
+                                                                placeholder="Enter Customer Name" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Enter Customer Phone
+                                                                Number</label>
+                                                            <input maxlength="200" type="text" required="required"
+                                                                class="form-control"
+                                                                placeholder="Enter Customer Phone" />
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type="button"
+                                                            class="default-btn prev-step">Back</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step skip-btn">Skip</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step">Continue</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane" role="tabpanel" id="step4">
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+                                                        <h3> Confirm Information</h3>
+                                                        <div class="row">
+                                                            <div class="col-xl-5 col-xxl-5 col-lg-5 col-sm-5">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title">Name: </h5>
+                                                                    <h5 class="card-title">Francis Ahmed </h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title">Phone : </h5>
+                                                                    <h5 class="card-title" style="color: green;">
+                                                                        09033065356
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <hr class="solid">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title">Kg Bought: </h5>
+                                                                    <h5 class="card-title"> 5 kg </h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title">Amount : </h5>
+                                                                    <h5 class="card-title" style="color: green;">₦ 4500
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-title">Mode : </h5>
+                                                                    <h5 class="card-title" style="color: green;">Cash
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <hr class="solid">
+
+
+                                                    </div>
+
+                                                    <ul class="list-inline pull-right">
+                                                        <li><button type="button"
+                                                                class="default-btn prev-step">Back</button></li>
+                                                        <li><button type="button"
+                                                                class="default-btn next-step skip-btn">Add
+                                                                Another</button></li>
+                                                        <li>
+                                                            <button class="default-btn next-step sweet-message"
+                                                                data-toggle="modal"
+                                                                data-target="#success_tic">Finish!</button>
+                                                        </li>
+
+                                                        <div id="success_tic" class="modal fade" role="dialog">
+                                                            <div class="modal-dialog">
+
+                                                                <!-- Modal content-->
+                                                                <div class="modal-content">
+                                                                    <a class="close" href="#"
+                                                                        data-dismiss="modal">&times;</a>
+                                                                    <div class="page-body">
+                                                                        <div class="head">
+                                                                            <h3 style="margin-top:5px;">Sales Added
+                                                                                successfully
+                                                                            </h3>
+                                                                            <h4>Please check
+                                                                                receipt...</h4>
+                                                                        </div>
+
+                                                                        <h1 style="text-align:center;">
+                                                                            <div class="checkmark-circle">
+                                                                                <div class="background"></div>
+                                                                                <div class="checkmark draw"></div>
+                                                                            </div>
+                                                                            <h1>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-xxl-4 col-lg-4 col-sm-4 ">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Overview</h5>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="card-header">
+                                <h5 class="card-title">Cashier : </h5>
+                                <h5 class="card-title" style="color: green;">Mrs Victoria Nwokolo </h5>
+                            </div>
+                            <div class="card-header">
+                                <h5 class="card-title">Shifts : </h5>
+                                <h5 class="card-title">Morning Shift </h5>
+                            </div>
+                            <div class="card-header">
+                                <h5 class="card-title">Price Per Kg : </h5>
+                                <h5 class="card-title" style="color: green;">₦900 - 1Kg </h5>
+                            </div>
+                            <div class="card-header">
+                                <h5 class="card-title">Date : </h5>
+                                <h5 class="card-title"> 30 January 2023 </h5>
+                            </div>
+                        </div>
+                        <div class="card-footer d-sm-flex justify-content-between">
+                            <div class="card-footer-link mb-4 mb-sm-0">
+                                <p class="card-text text-dark d-inline">Price updated 3 mins ago</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!--**********************************
+            Footer start
+        ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Petrosoft Limited</a>
+                        2019
+                    </p>
+                    <p>Distributed by <a href="https://petrosoft.com.ng/" target="_blank">Petrosoft</a></p>
+                </div>
+            </div>
+            <!--**********************************
+            Footer end
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+        </div>
+
+        
+        <!-- Required vendors -->
+        <script src="vendor/global/global.min.js"></script>
+        <script src="js/quixnav-init.js"></script>
+        <script src="js/custom.min.js"></script>
+
+        <script src="vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="js/plugins-init/sweetalert.init.js"></script>
+
+</body>
+
+
+<!-- Mirrored from technext.github.io/focus-2/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 10:36:53 GMT -->
+
+</html>
+
+
+<script>
+    $(document).ready(function () {
+      var json = { "action": "retail_products_list", "user_id": 616, "token": "6161676986787Q6jheup2LqzakUfyEJGVA9W3mKicFs7SPdvC1" };
+      const list = document.getElementById("list");
+      
+      
+     
+      $.ajax({
+          type: "POST",
+          url: "https://demo.station.cloud-sync.biz/api/pos.php",
+          // The key needs to match your method's input parameter (case-sensitive).
+          data: JSON.stringify(json),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          crossDomain:true,
+          success: function(data){
+              data.data.forEach(product => {
+             
+                 list.innerHTML += `<option value="${product.id}"> ${product.name} Balance [${product.balance}]  </option>`;
+              });
+              
+          },
+          error: function(errMsg) {
+              alert("cant load");
+          }
+      });
+  });
+  </script>
