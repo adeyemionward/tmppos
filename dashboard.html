@@ -1,5 +1,13 @@
 
-
+<script>
+    
+    var username1 = localStorage.getItem("username");
+    if(username1){
+    }else{
+        alert('Session Expired: You are not logged in');
+        window.location.replace('login.html');
+    }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +26,6 @@
     <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
     <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-
-
 </head>
 <style>
    
@@ -540,9 +545,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
+    accesstoken1    = localStorage.getItem("accesstoken");
+    userId1         = localStorage.getItem("userId");
     function fetchProducts()
             {
-                var json = { "action": "tanks_list", "user_id": 616, "token": "6161676986787Q6jheup2LqzakUfyEJGVA9W3mKicFs7SPdvC1" };
+                var json = { "action": "tanks_list", "user_id": userId1, "token": accesstoken1};
 
                 $.ajax({
                     type: "POST",

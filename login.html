@@ -43,7 +43,7 @@
 
                                 <div class="captcha">
                                     <div id="captchaValue">ssss</div>
-                                    <input type="text" name="" placeholder="Captcha">
+                                    <input type="text" name="" id="captchinput" placeholder="Captcha">
                                 </div>
                             <button type="submit" id="submitBtn">Sign in</button> 
                         </form> 
@@ -65,30 +65,40 @@
             var username = $("#username").val();
             var password = $("#password").val();
             var json = { "action": "login", "username": username, "password": password };
+            var captcheInput = $("#captchinput").val();
+         
+            if (captcheInput != cValue ) {
+                alert('Please enter the correct captcha');
+            }else{
+                $.ajax({
+                    type: "POST",
+                    url: "https://demo.station.cloud-sync.biz/api/pos.php",
+                    // The key needs to match your method's input parameter (case-sensitive).
+                    data: JSON.stringify(json),
+                    contentType: "application/json; charset=utf-8",
+                    success: function(data){
+                        if(data.message == 'Login successfull'){
+                            var getUserId = data.data.user_id;
+                            var getUsername = data.data.username;
+                            var getAccessToken = data.data.access_token;
+                            localStorage.setItem("userId", getUserId);
+                            localStorage.setItem("username", getUsername);
+                            localStorage.setItem("accesstoken", getAccessToken);
+                            // username1 = localStorage.getItem("username");
 
-            $.ajax({
-                type: "POST",
-                url: "https://demo.station.cloud-sync.biz/api/pos.php",
-                // The key needs to match your method's input parameter (case-sensitive).
-                data: JSON.stringify(json),
-                contentType: "application/json; charset=utf-8",
-                success: function(data){
-                    if(data.message == 'Login successfull'){
-                        var getUsername = data.data.username;
-                        var getAccessToken = data.data.access_token;
-                        localStorage.setItem("username", getUsername);
-                        localStorage.setItem("accesstoken", getAccessToken);
-                        var username1 = localStorage.getItem("username");
-
-                        alert(data.message);
+                            // alert(data.message);
+                            if(data.message == 'Login successfull'){
+                                alert('Login Succesful... Redirecting to Dashboard');
+                                window.location.replace('dashboard.html'); 
+                            }                   
+                        }else{
+                            alert(data.message);
+                        }   
                         
-                    }else{
-                        alert(data.message);
-                    }   
-                    
-                    console.log(data)
-                },   
-            });
+                        console.log(data)
+                    },   
+                });
+            }
         })  
     }
 

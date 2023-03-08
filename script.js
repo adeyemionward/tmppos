@@ -18,13 +18,13 @@ inputCaptcha.addEventListener('change', function(){
     //alert(thisValue)
 })
 
-submitBtn.addEventListener('click', function(){
-    if(cValue == thisValue){
-        alert('Valid');
-        document.logForm.submit();
-    }else if(inputCaptcha.value == ""){
-        alert('Invalid Captcha');
-    }else{
-        alert('Invalid Captcha');
-    }
-})
+// submitBtn.addEventListener('click', function(){
+//     if(cValue == thisValue){
+//         alert('Valid');
+//         document.logForm.submit();
+//     }else if(inputCaptcha.value == ""){
+//         alert('Invalid Captcha');
+//     }else{
+//         alert('Invalid Captcha');
+//     }
+// })
