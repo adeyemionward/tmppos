@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
     <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+
+
 </head>
 <style>
    
@@ -71,10 +74,7 @@
       .toggle input[type="checkbox"]:checked + label:after {
         left: 26px;
       }
-      table, tbody, tr, td {background: #FFF; color: #000; text-align: center; border: 0.5px solid;}
-          .tabletitle{
-            padding: 10px;
-          }
+      
   </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
@@ -341,7 +341,11 @@
                             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"
                                     style="color: black;">Manage
                                     Accessories</a>
-                                
+                                <ul aria-expanded="false">
+                                    <li><a href="add_accessories.html" style="color: black;">Add an Accessories</a></li>
+                                    <li><a href="add_categories.html" style="color: black;">Add new Category</a></li>
+
+                                </ul>
                             </li>
                             <li><a href="accessories_report.html" style="color: black;">Accessories Report</a></li>
 
@@ -441,7 +445,7 @@
        content body start here
     ***********************************-->
     <input type="text" hidden class="form-control" id="priceinput"  name="price" >
-            <div class="row" style="display:none" id="cartContainer">
+                <div class="row" >
                     <div class="col-xl-8 col-xxl-8 col-lg-6 col-sm-6">
                         <div class="card pt-3">
                             <div class="card-header">
@@ -461,9 +465,13 @@
                                             <li role="presentation" class="disabled">
                                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab"
                                                     aria-expanded="false"><span class="round-tab">2</span> <i
+                                                        class="pl-4">Pricing</i></a>
+                                            </li>
+                                            <li role="presentation" class="disabled">
+                                                <a href="#step3" data-toggle="tab" aria-controls="step3"
+                                                    role="tab"><span class="round-tab">3</span> <i
                                                         class="pl-4">Payment</i></a>
                                             </li>
-                                            
                                             <li role="presentation" class="disabled">
                                                 <a href="#step4" data-toggle="tab" aria-controls="step4"
                                                     role="tab"><span class="round-tab">4</span> <i class="pl-4">Confirm
@@ -475,97 +483,99 @@
                                     <form role="form" action="index.html" id="retail" class="login-box">
                                         <div class="tab-content" id="main_form">
                                             <div class="tab-pane active" role="tabpanel" id="step1">
-                                                <div class="col-md-12">
-                                                    <h3> Cart</h3>
-                                                    
-                                                    <!-- <div class="row">
-                                                        <div class="col-3">
-                                                            <div class="card-header">
-                                                                <h5 class="card-title">Item : </h5>
-                                                                <h5 class="card-title"> {{ kg_input }}kg  </h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5">
-                                                            <div class="card-header">
-                                                                <h5 class="card-title">Price : </h5>
-                                                                <h5 class="card-title" id="amount" style="color: green;">
-                                                                 {{ amount }}   
-                                                                </h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-4">
-                                                            <div class="card-header">
-                                                                <h5 class="card-title">Quantity : </h5>
-                                                                <h5 class="card-title" style="color: green;" id="customer_mode_payment">
-                                                                    <input type="number" style="width:10px">
-                                                                </h5>
-                                                            </div>
-                                                        </div>
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+                                                       
+                                                        <center>
+                                                           
+                                                            <div class="basic-form">
+    <!--**********************************
+       step form start
+    ***********************************-->
+                                                                
+                                                              
+   <!--**********************************
+        product start
+    ***********************************-->
+                                                                        <input  class="form-control form-control-lg" hidden value="GAS"/>
 
-                                                    </div> -->
-                                                    <table class="tbl-cart" >
-                                                        <thead>
-                                                            <tr>
-                                                                <th class='text-center' width="40%">Name</th>
-                                                                <th class='text-center' width="20%">Unit Price</th>
-                                                                <th class='text-center' width="20%">Quantity</th>
-                                                                <th class='text-center' width="20%">Sub Total</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <!--  Cart table to load data on "add to cart" action -->
-                                                        <tbody id="cartTableBody">
-                                                        </tbody>
-                                                        <tfoot>
-                                                            <tr>
-                                                                <td class="text-right">Total:</td>
-                                                                <td id="itemCount" class="text-right" colspan="2"></td>
-                                                                <td id="totalAmount" class="text-center"></td>
-                                                            </tr>
-                                                        </tfoot>
-                                                    </table>
-                                                    <hr class="solid">
+     <!--**********************************
+        Product ends
+    ***********************************-->
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title"> Select Nozzle </h4>
+                                                                    </div>
 
 
+     <!--**********************************
+        nozzle select  start
+    ***********************************-->
+                                                                    <div class="form-group">
+                                                                        <select id="list_dispenser" class="form-control form-control-lg">
+                                                                          
+                                                                        </select>
+                                                                    </div>
+    <!--**********************************
+        nozzle  select ends
+    ***********************************-->
+     <!--**********************************
+        price sold per kg(note this is hidden) start
+    ***********************************-->
+                
+                 <input type="text" hidden class="form-control"  id="customertype-input" name="customer" value="regular">
+     <!--**********************************
+        price sold per kg ends
+    ***********************************-->
+                                                                
+                                                            </div>
+                                                        </center>
+                                                    </div>
                                                 </div>
+    <!--**********************************
+        next button start
+    ***********************************-->
                                                 <ul class="list-inline pull-right">
-                                                    <li><button type="button"
-                                                            class="default-btn prev-step" onClick="showMart()">Back to Mart</button></li>
-                                                    
-                                                    <li><button type="button"
-                                                            class="default-btn next-step">Continue to Pay</button></li>
+                                                    <li><button type="button" class="default-btn next-step">Continue to
+                                                            next step</button></li>
                                                 </ul>
                                             </div>
                                             <div class="tab-pane" role="tabpanel" id="step2">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-12">
                                                         <h3> Pricing </h3>
-                                                        <div class="col-md-12">
-
-                                                            <h3> Payment Details </h3>
-    
-    
-    
-                                                            <div class="form-group">
-                                                                <label class="control-label">Enter Customer Name</label>
-                                                                <input maxlength="200" type="text" id="name1" name="name" required="required"
-                                                                    class="form-control" ng-model="customer_name_input"
-                                                                    placeholder="Enter Customer Name" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label">Enter Customer Phone
-                                                                    Number</label>
-                                                                <input maxlength="200" type="phone" id="phone1" name="phone" required="required"
-                                                                    class="form-control" ng-model="customer_phone_input"
-                                                                    placeholder="Enter Customer Phone" />
-                                                            </div>
-    
-                                                        </div>
                                                         
                                                         <center>
 
                                                             <div class="card-body">
                                                                 <div class="basic-form">
-         
+
+    <!--**********************************
+       kg of gas start
+    ***********************************-->
+                                        <div class="form-group">
+                                        <label style="display: block;">Kg Of Gas</label>
+                                              <input maxlength="100" type="number"  required="required" ng-model="kg_input" id="quantity" name="quantity" min="1" max="100" auto-complete="off" value="0" step="1" class="kg-textfield" placeholder="0.00" />
+                                         
+                                        </div>
+
+   <!--**********************************
+        kg of gas ends
+    ***********************************-->
+                                                                    
+
+                                                                    <!--**********************************
+        Amount start
+    ***********************************-->
+             <div class="card-header">
+                 <h4 class="card-title">Amount</h4>
+             </div>
+  <div class="form-group">
+     <label class="col-sm-3 col-form-label " style=" display: inline-block;text-align:right;font-size:2.6em">₦</label>
+    <input required="required" name="amount" ng-model="amount" class="text-center text-giant total" placeholder="0.00" style="display: inline-block;" />
+   </div>
+   <!--**********************************
+        Amount ends
+    ***********************************-->
          <div class="card-header">
 
      <!--**********************************
@@ -662,18 +672,18 @@
                      </select>
                 </div>
                          </div>
-                            <!--**********************************
-                                    Choose Prefer POS to send to ends
-                                ***********************************-->
-                                <!--**********************************
-                                    Choose Prefer multiple to send to start
-                                ***********************************-->
+ <!--**********************************
+        Choose Prefer POS to send to ends
+    ***********************************-->
+    <!--**********************************
+        Choose Prefer multiple to send to start
+    ***********************************-->
                             <div id="multipleoption" style="display: none;">
                                  <h6> Choose How you wish to pay</h6>
                                  <center>
-                                    <!--**********************************
-                                            Choose Prefer Mutiple mode to send to ends
-                                        ***********************************-->
+<!--**********************************
+        Choose Prefer Mutiple mode to send to ends
+    ***********************************-->
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="form-group">
@@ -687,9 +697,9 @@
                                          </div>
                                     </div>
                                    
-                                    <!--**********************************
-                                            Choose Prefer Mutiple mode to send to ends
-                                        ***********************************-->
+<!--**********************************
+        Choose Prefer Mutiple mode to send to ends
+    ***********************************-->
                                         <div class="col-5"   id="partlytransferoption" style="display: none;">
                                            <div class="form-group">
                                              <label   class="control-label">Bank Type</label>
@@ -771,10 +781,45 @@
                                                     <li><button type="button"
                                                             class="default-btn prev-step">Back</button></li>
                                                     <li><button type="button"
+                                                            class="default-btn next-step skip-btn">Add Another Purchase</button></li>
+                                                    <li><button type="button"
                                                             class="default-btn next-step">Continue</button></li>
                                                 </ul>
                                             </div>
-                                            
+                                            <div class="tab-pane" role="tabpanel" id="step3">
+                                                <div class="col-xs-12">
+                                                    <div class="col-md-12">
+
+                                                        <h3> Payment Details </h3>
+
+
+
+                                                        <div class="form-group">
+                                                            <label class="control-label">Enter Customer Name</label>
+                                                            <input maxlength="200" type="text" id="name" name="name" required="required"
+                                                                class="form-control" ng-model="customer_name_input"
+                                                                placeholder="Enter Customer Name" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Enter Customer Phone
+                                                                Number</label>
+                                                            <input maxlength="200" type="phone" id="phone" name="phone" required="required"
+                                                                class="form-control" ng-model="customer_phone_input"
+                                                                placeholder="Enter Customer Phone" />
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type="button"
+                                                            class="default-btn prev-step">Back</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step skip-btn">Skip</button></li>
+                                                    <li><button type="button"
+                                                            class="default-btn next-step">Continue</button></li>
+                                                </ul>
+                                            </div>
                                             <div class="tab-pane" role="tabpanel" id="step4">
                                                 <div class="col-xs-12">
                                                     <div class="col-md-12">
@@ -832,7 +877,7 @@
                                                                 class="default-btn prev-step">Back</button></li>
                                                        
                                                         <li>
-                                                            <button class="prev-step"  value="submit" id="submitBtn1"
+                                                            <button class="prev-step"  value="submit" id="submitBtn"
                                                             ><span class="prev-step"><span class="prev-step"><span class="prev-step" ><span class="prev-step" > Finish!</button></span>
                                                         </li>
 
@@ -846,6 +891,49 @@
                                     </form>
                                 </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                             <div class="span" id="step-wizard" style="display:none">
            
@@ -1011,15 +1099,14 @@ nozzle select  start
                                                 <hr class="solid">
 
 
-                                            <button class="btn btn-success btn-lg pull-right" type="submit">Finishmmmm!</button>
+                                            <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
             </div>
     
-</div>
-</div>
+</div></div>
                 <div class="col-xl-3 col-xxl-4 col-lg-4 col-sm-4 ">
                     <div class="card">
                         <div class="card-header">
@@ -1054,19 +1141,9 @@ nozzle select  start
                 </div>
             </div>
 
-            <ul class="list-inline " style="position:absolute; right:0px; " id="catAcc">
-                
-                <li><button type="button" class="btn-danger" onClick="emptyCart()" id="btnEmpty">Empty Cart</button></li>
-                  
-                    
-                        <li><button type="button" class="btn-success" id="goTocart"  onClick="showCart()">Go to Cart</button></li>
-          
-                  </ul>
-            <div class="row " id="list_accessories" style="padding-top: 60px;"></div>
-                   
-                           
-            </div>
-       
+
+
+
 
 
 
@@ -1074,7 +1151,14 @@ nozzle select  start
             <!--**********************************
             Footer start
         ***********************************-->
-            
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Petrosoft Limited</a>
+                        2019
+                    </p>
+                    <p>Distributed by <a href="https://petrosoft.com.ng/" target="_blank">Petrosoft</a></p>
+                </div>
+            </div>
             <!--**********************************
             Footer end
         ***********************************-->
@@ -1275,230 +1359,3 @@ type: 'HEAD',
       });
   });
   </script>
-  <script>
-    
-    function fetchAccesories()
-            {
-                var json = { "action": "retail_products_list", "type": "MART", "user_id": 616, "token": "6161676986787Q6jheup2LqzakUfyEJGVA9W3mKicFs7SPdvC1" };
-
-                $.ajax({
-                    type: "POST",
-                    url: "https://demo.station.cloud-sync.biz/api/pos.php",
-                    // The key needs to match your method's input parameter (case-sensitive).
-                    data: JSON.stringify(json),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    crossDomain:true,
-                    success: function(data){
-                        data.data.forEach(product => {
-                            //alert(product.name);
-                            var li = document.getElementById("list_accessories");
-                            
-                                 //li.innerHTML += `<div class="col-xl-3"><div class="card h-100"><div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div><img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="" /><div class="card-body p-4"><div class="text-center"><h5 class="fw-bolder">${product.name}</h5><div class="d-flex justify-content-center small text-warning mb-2"><div class="bi-star-fill"></div><div class="bi-star-fill"></div><div class="bi-star-fill"></div><div class="bi-star-fill"></div><div class="bi-star-fill"></div></div><span class="text-muted text-decoration-line-through">&#8358; ${product.cost}</span></div></div><div class="card-footer p-4 pt-0 border-top-0 bg-transparent"><div class="text-center"><input type="submit" id="add_cart" value="Add to Cart" class="btn btn-outline-dark mt-auto add_cart" ></div></div></div></div>`;
-                        li.innerHTML +='<div class="col-xl-3 product-item" style="margin-top:10px">'+
-                                '<div class="card h-100" >'+
-                                    '<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>'+
-                                    '<img class="card-img-top" src="images/gasdemo.jpg" alt="" />'+
-                                    '<div class="card-body p-4">'+
-                                        '<div class="text-center">'+
-                                            '<h5 class="fw-bolder productname">'+ product.name +'</h5>'+
-                                            '<div class="d-flex justify-content-center small text-warning mb-2">'+
-                                                '<div class="bi-star-fill"></div><div class="bi-star-fill"></div>'+
-                                                '<div class="bi-star-fill"></div><div class="bi-star-fill"></div>'+
-                                                '<div class="bi-star-fill"></div>'+
-                                            '</div>'+
-                                            '<div class="price">&#8358; <span class="text-muted text-decoration-line-through">' + product.cost + '</span></div>'+
-                                        '</div>'+
-                                    '</div>'+
-                                    '<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">'+
-                                        '<div class="text-center">'+
-                                            '<input type="text"  value="1" class="btn btn-outline-dark mt-auto product-quantity" size="2">'+
-                                            '<input type="submit" id="add-to-cart" value="Add to Cart" class="btn btn-outline-dark mt-auto add_cart" onClick="addToCart(this)">'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>';
-                            });
-                        //alert(data.message);
-                    },
-                    error: function(errMsg) {
-                        alert(errMsg);
-                    }
-                });
-            }
-
-            fetchAccesories();
-            function showProductAccessories(product) {
-	//Iterate javascript shopping cart array
-		
-}
-function showCartTable() {
-        var cartRowHTML = "";
-        var itemCount = 0;
-        var grandTotal = 0;
-
-        var price = 0;
-        var quantity = 0;
-        var subTotal = 0;
-
-        if (localStorage.getItem('shopping-cart')) {
-          
-            var shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'));
-            itemCount = shoppingCart.length;
-            //console.log(itemCount);
-            //Iterate javascript shopping cart array
-            shoppingCart.forEach(function(item) {
-                var cartItem = JSON.parse(item);
-                
-                price = parseFloat(cartItem.price);
-                quantity = parseInt(cartItem.quantity);
-                subTotal = price * quantity
-
-                cartRowHTML += "<tr>" +
-                    "<td>" + cartItem.productName + "</td>" +
-                    "<td class='text-center'>&#8358;" + price.toFixed(2) + "</td>" +
-                    "<td class='text-center'>" + quantity + "</td>" +
-                    "<td class='text-center'>&#8358;" + subTotal.toFixed(2) + "</td>" +
-                    "</tr>";
-
-                grandTotal += subTotal;
-                
-            });
-           
-        }else{
-        }
-
-        $('#cartTableBody').html(cartRowHTML);
-        $('#itemCount').text(itemCount);
-        $('#totalAmount').html("&#8358;" + grandTotal.toFixed(2));
-    }
-    function addToCart(element) {
-        var productParent = $(element).closest('div.product-item');
-
-        var price = $(productParent).find('.price span').text();
-        var productName = $(productParent).find('.productname').text();
-        var quantity = $(productParent).find('.product-quantity').val();
-        var cartItem = {
-            productName: productName,
-            price: price,
-            quantity: quantity
-        };
-        var cartItemJSON = JSON.stringify(cartItem);
-
-        var cartArray = new Array();
-        // If javascript shopping cart session is not empty
-        if (localStorage.getItem('shopping-cart')) {
-            cartArray = JSON.parse(localStorage.getItem('shopping-cart'));
-        }
-        cartArray.push(cartItemJSON);
-
-        var cartJSON = JSON.stringify(cartArray);
-        localStorage.setItem('shopping-cart', cartJSON);
-        //alert(localStorage);
-        console.log(localStorage)
-        showCartTable();
-        alert('Added to Cart');
-    }
-    
-    function emptyCart() {
-	if (localStorage.getItem('shopping-cart')) {
-		// Clear JavaScript localStorage by index
-		localStorage.removeItem('shopping-cart');
-		showCartTable();  
-	}
-    alert('Cart is emptied');
-}
-
-
-    function showCart() {
-        if (localStorage.getItem('shopping-cart')) {
-            $("#list_accessories").hide();
-            $("#cartContainer").show();
-            $("#catAcc").hide();
-        }else{
-            alert('Cart is empty');
-        }
-        
-       // return false
-    }
-    function showMart() {
-        $("#list_accessories").show();
-        $("#cartContainer").hide();
-        $("#catAcc").show();
-    
-    };
-
-let submitBtn1 = document.querySelector('#submitBtn1');
-    submitBtn1.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert();
-
-
-            // CRUD operation 
-    // on submit event default
-
-        
-        // getting data from local storage 
-    let arr = JSON.parse(localStorage.getItem('shopping-cart'));
-    // getting input form input fields
-    let name1 = document.querySelector("#name1").value;
-    let phone1 = document.querySelector("#phone1").value;
-   
-alert(name1);
-    let arrData = {
-            action: "retail_sales_post",
-            user_id: 616,
-            station_id: 14,
-            token: "6161677413206X3Mk6Kwp2CvH1NBLGJsueoWUmVnQhr58bEygS",
-            date: "2023-01-27",
-            time: "14:19",
-            invoice: "",
-            shift_id: "257725",
-           customer:{
-            name: name1,
-            phone: phone1,
-
-           }, items: [
-            {
-              product_id: "461",
-              dispenser_id: "298",
-              rate: 150.00,
-              quantity: 2,
-             amount:2,
-            
-        }
-    ],
-    payments: [
-        {
-            method: 'cash',
-            account_id: 1324,
-            amount: 2
-        }
-    ],
-    total:2,
-    paid: 1000.00,
-    change: 400.00
-};
-alert('before');
-arr.push(arrData);
-alert('after');      
-        // setLocalStorage();
-        alert("added succesfully");
-        e.preventDefault();
-        
-        document.getElementById("main-wrapper").style.display = "none";
-        document.getElementById("invoice-POS").style.display = "block";
-        
-        Noti({
-            status: 'success',
-            content: 'Sale has been Posted',
-            timer: 3000,
-            animation: true,
-            progress: true,
-        }) ;
-});
- 
- 
- 
-
-</script>

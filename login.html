@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"  href="login_style.css" > 
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+
+<body>
+     
+    <div class="masthead" style="background-image: url('login/bg.jpg');">
+        <div class="color-overlay d-flex justify-content-center align-items-center">
+
+        <!-- Containers provide a means to center and horizontally pad your site’s contents -->
+            <div class="container">
+                <header>
+                    
+                    <img src="login/logo.png" class="logo" alt="petrosoft-logo">
+                    <img src="login/oil nd gas.png" class="logo-text">
+                       
+                </header>
+                <!-- Rows are wrappers for columns -->
+                <div class="row vh-60 align-items-center justify-content-center">
+                    <div class="col-sm-8 col-md-6 col-lg-4 bg-white rounded p-4 shadow">
+                        <img src="login/6.png" class="center" alt="gaspos-logo">
+                        <h4 class="text-center mb-4">Sign in your account</h4>
+                        <form name="logForm" id="login">
+                            <div class="mb-4">
+                                <label for="email" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="username">
+                            </div>
+                            <div class="mb-4">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+                            
+                            <!-- <div class="row">
+                                <label for="captcha" class="form-label">Enter captcha:</label>
+                                <div class="recaptcha col-4" style="background-color:black; margin-left: 10px;">
+                                 <center><p class="mt-2" style="color:white; font-weight: bold; ">456376</p></center>
+                                </div>  -->
+
+                                <div class="captcha">
+                                    <div id="captchaValue">ssss</div>
+                                    <input type="text" name="" placeholder="Captcha">
+                                </div>
+                            <button type="submit" id="submitBtn">Sign in</button> 
+                        </form> 
+                        </div>
+                        </div>          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script>
+    function loginUser()
+    {
+        $("#login").submit(function(e){
+            e.preventDefault();
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var json = { "action": "login", "username": username, "password": password };
+
+            $.ajax({
+                type: "POST",
+                url: "https://demo.station.cloud-sync.biz/api/pos.php",
+                // The key needs to match your method's input parameter (case-sensitive).
+                data: JSON.stringify(json),
+                contentType: "application/json; charset=utf-8",
+                success: function(data){
+                    if(data.message == 'Login successfull'){
+                        var getUsername = data.data.username;
+                        var getAccessToken = data.data.access_token;
+                        localStorage.setItem("username", getUsername);
+                        localStorage.setItem("accesstoken", getAccessToken);
+                        var username1 = localStorage.getItem("username");
+
+                        alert(data.message);
+                        
+                    }else{
+                        alert(data.message);
+                    }   
+                    
+                    console.log(data)
+                },   
+            });
+        })  
+    }
+
+    loginUser();
+</script>
+</body>
+</html>

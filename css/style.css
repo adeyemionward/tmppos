@@ -20123,10 +20123,7 @@ input[type="checkbox"]:checked::before{
             background: #FFF;
             
         } 
-          table, tbody, tr, td {background: #FFF; color: #000; text-align: center; border: 0.5px solid;}
-          .tabletitle{
-            padding: 10px;
-          }
+          
           ::moz-selection {background: #FFF; color: #000;}
           h1{
             font-size: 1.5em;

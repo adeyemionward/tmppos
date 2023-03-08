@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- UI Template for Petrosoft Ltd!-->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Petrosoft Gas Depot </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/header-icon.png">
+    <link rel="stylesheet" href="vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
+    <link href="vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+<style>
+   
+    .toggle {
+        position: relative;
+        box-sizing: border-box;
+      }
+      .toggle input[type="checkbox"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+      }
+      .toggle label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .toggle label:before {
+        content: '';
+        width: 56px;
+        height: 22px;
+        background: #ccc;
+        box-shadow: inset 0 0 0 0px #13bf11;
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        box-sizing: border-box;
+        transition: 0.2s ease-in;
+      }
+      .toggle label:after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        left: 0;
+        top: -4px;
+        z-index: 2;
+        background: #fff;
+        box-shadow: 0 1px 10px #0005;
+        box-sizing: border-box;
+        transition: 0.2s ease-in;
+      }
+      .toggle input[type="checkbox"]:checked + label:before {
+        box-shadow: inset 40px 0 0 #13bf11;
+      }
+      .toggle input[type="checkbox"]:checked + label:after {
+        left: 26px;
+      }
+      
+  </style>
+  <style>
+    td{
+        color:black;
+    }
+    td:nth-child(2){
+        padding-left: 5px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+   
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="show" style="display:none"></div>
+    <div ng-app="">
+    <div id="invoice-POS" id="invoice-POS" style="display:none">
+
+        <img src="images/rlogo.png" class="center" alt="gaspos-logo">
+        <!-- <center id="top">
+          <div class="logo"></div>-->
+          <center>
+            <h2 style="font-weight: bolder;">Access Gas Station</h2>
+          </center>
+          <!-- <div class="info"> 
+            <h2>SBISTechs Inc</h2>
+          </div>End Info
+        </center>End InvoiceTop -->
+        
+        <div id="mid">
+          <center class="info">
+            <h2>Contact Info</h2>
+            <p> 
+                Address : street city, state 0000</br>
+                Email   : JohnDoe@gmail.com</br>
+                Phone   : 555-555-5555</br>
+            </p>
+          </center>
+        </div><!--End Invoice Mid-->
+        
+        <div id="bot">
+    
+                        <div id="table">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>Sale ID</td>
+                                <td>26 - 02151313</td>
+                              </tr>
+                              <tr>
+                                <td>Date</td>
+                                <td>Feb 15, 2023</td>
+                              </tr>
+                              <tr>
+                                <td>Satus</td>
+                                <td>Approved</td>
+                              </tr>
+                              <tr>
+                                <td>Sales Rep</td>
+                                <td>Okeke Thomas</td>
+                              </tr>
+                              <tr>
+                                <td>Customer Name</td>
+                                <td>{{ customer_name_input }}</td>
+                              </tr>
+                            </tbody>
+                            
+                          </table><br><br>
+
+                          <table>
+                            <tr class="tabletitle">
+                              <td class="item"><h2>Item</h2></td>
+                              <td class="Rate"><h2>Rate</h2></td>
+                              <td class="Hours"><h2>Quantity</h2></td>
+                              <td class="amount"><h2>Amount</h2></td>
+                          </tr>
+
+                          <tr class="service">
+                              <td class="tableitem"><p class="itemtext">Cooking Gas<br>---<br>Pump 10A</p></td>
+                              <td class="tableitem"><p class="itemtext">900.00</p></td>
+                              <td class="tableitem"><p class="itemtext">{{ kg_input }} kg</p></td>
+                              <td class="tableitem"><p class="itemtext" id="amount1"></p></td>
+                          </tr>
+                          </table><br><br>
+
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>Qty</td>
+                                <td>{{ kg_input }} kg</td>
+                              </tr>
+                              <tr>
+                                <td>Amount</td>
+                                <td id="sum"></td>
+                              </tr> 
+                              <tr>
+                                <td>Mode of Payment</td>
+                                <td>{{ mode_payment }}</td>
+                              </tr>      
+                            </tbody>
+                            
+                          </table>
+                           
+                        </div><!--End Table-->
+    
+                        <div id="legalcopy">
+                            <p class="legal"><strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
+                            </p>
+                        </div>
+    
+                           <button class="btn btn-primary" id="" onclick="redirect()">Back</button>
+                      <button class="btn btn-success" onclick="print()">Print Receipt</button>
+                
+
+                  </div>
+    </div>
+   
+    <div id="main-wrapper" >
+
+        <!--**********************************
+            Nav header start (Logo here)
+        ***********************************-->
+        <div class="nav-header bg-success">
+            <a href="index-2.html" class="brand-logo">
+
+
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger ">
+                    <span class="line bg-success"></span><span class="line bg-success"></span><span
+                        class="line bg-success"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+    <!--**********************************
+        Search bar start
+    ***********************************-->
+
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify" style="color: #589650;"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Search"
+                                            aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+     <!--**********************************
+        Main wrapper ends
+    ***********************************-->
+<!--**********************************
+ count down timer/ Online status / profile dropdown start
+    ***********************************-->
+
+    <ul class="navbar-nav header-right">
+        <li class="nav-item dropdown header-profile">
+            <a class="nav-link mt-2">
+                <h6 class="mb-4" id="network"></h6>
+            </a>
+            
+        </li>
+        <li class="nav-item dropdown header-profile" >
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                <i class="mdi mdi-account"></i>
+            </a>
+            
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="profile.html" class="dropdown-item">
+                    <i class="icon-user"></i>
+                    <span class="ml-2">Profile </span>
+                </a>
+
+                <a href="index.html" class="dropdown-item">
+                    <i class="icon-key"></i>
+                    <span class="ml-2">Logout </span>
+                </a>
+            </div>
+        </li>
+        <li class="nav-item dropdown header-profile mt-1" >
+        <div class="toggle">
+            <input type="checkbox"/>
+            <label></label>
+        </div>
+        </li>
+
+                        <!--**********************************
+        count down timer / online status/profile dropdown ends
+    ***********************************-->
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav bg-success" id="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first" style="color: black;font-weight:bold">RETAIL SALES </li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-single-04" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Retail Sales</span></a>
+                        <ul aria-expanded="false">
+                            <li style="color: black;"><a href="dashboard.html" style="color: black;">Sale Gas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label first" style="color: black;font-weight:bold"> SALES REPORT </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false" style="color: black;"><i
+                                class="icon icon-globe-2icon icon-globe-2" style="color: black;"></i><span
+                                class="nav-text" style="color: black;">Sales Report</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="shiftsales-report.html" style="color: black;">Sales Report</a></li>
+                            <li><a href="detailed_sales_report.html" style="color: black;">Detailed Sales Report</a>
+                            </li>
+                            <li><a href="customers.html" style="color: black;">Customers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label" style="color: black;font-weight:bold">DEALEAR SALES</li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-app-store" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Dealer's </span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="dealers-dashboard.html" style="color: black;">Dealer Sale Gas</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"
+                                    style="color: black;">Manage Dealer's</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="add-dealer.html" style="color: black;">Add Dealer's</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="all-dealers.html" style="color: black;">Manage Dealer's Profile</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-label" style="color: black;font-weight:bold">INVENTORY SALES</li>
+                    <li><a class="has-arrow" href="javascript:void()" style="color: black;" aria-expanded="false"><i
+                                class="icon icon-world-2" style="color: black;"></i><span class="nav-text"
+                                style="color: black;">Inventory</span></a>
+                        <ul aria-expanded="false">
+
+                            <li><a href="accessories.html" style="color: black;">Sale Accessories</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"
+                                    style="color: black;">Manage
+                                    Accessories</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="add_accessories.html" style="color: black;">Add an Accessories</a></li>
+                                    <li><a href="add_categories.html" style="color: black;">Add new Category</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="accessories_report.html" style="color: black;">Accessories Report</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body" style="background-color: #589650;">
+            <div class="container-fluid">
+                <!--**********************************
+                Adjustable nav top-menu hide/show start
+             ***********************************-->
+                <div class="row page-titles mx-0 bg-success" style=" padding: left-150px,right-150px; display:none;"
+                    id="topmenu">
+
+                    <div class="col-sm-2">
+
+                    </div>
+                    <div class="col-sm-2 dropdown">
+
+                        <img src="images/cynlinder.png" alt="" srcset=""
+                            style="border-radius:50px;background-color:white;">
+                        <p style="color:black; font-weight:bold">Retail Sales</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+                                <li><a href="dashboard.html" style="color: black;">Sell Gas</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/dll.jpg" alt="" srcset="" style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Dealer Sales</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+
+                                <li><a href="#" style="color: black;">Dealer Sale Gas</a></li>
+                                <li>
+                                    <a href="#" style="color: black;">Add Dealer's</a>
+                                </li>
+                                <li><a href="#" style="color: black;">View a Dealer's Report</a></li>
+
+                                <li><a href="#" style="color: black;">Dealer's Sales Report</a></li>
+                            </ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/buy.jpg" alt="" srcset="" style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Inventory Purchase</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+                                <li><a href="#" style="color: black;">Sell Accessories</a></li>
+                                <li><a href="#" style="color: black;">Add Category Accessories</a></li>
+                                <li><a href="shiftsales-report.html" style="color: black;">Inventory Report</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 dropdown">
+                        <img src="images/sales-icon.png" alt="" srcset=""
+                            style="border-radius:50px;background-color:white;">
+                        <p style="color: black; font-weight:bold">Sales Report</p>
+                        <div class="dropdown-content bg-success">
+                            <ul>
+
+                                <li><a href="shiftsales-report.html" style="color: black;">Sales Report</a></li>
+                                <li><a href="#" style="color: black;">Detailed Sales Report</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+
+                </div>
+ <!--**********************************
+        Adjustable menu ends
+    ***********************************-->
+ <!--**********************************
+       content body start here
+    ***********************************-->
+    <div class="row">
+        <div class="col-xl-8 col-xxl-8 col-lg-8 col-sm-6">
+            <div class="card pt-3">
+                <div class="card-header">
+                    <h5 class="card-title pb-4">List of Tanks</h5>
+                </div>
+                <div class="card-body">
+                    <div class="panel-body" id="tanks_table">
+                       
+                           
+                                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-xxl-4 col-lg-4 col-sm-4 ">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Today's Sales</h5>
+                </div>
+                <div class="card-body" >
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="morris-donut-chart" style="height: 220px"><svg height="220" version="1.1" width="242" xmlns="" style="overflow: hidden; position: relative; left: -0.453125px; top: -0.40625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M121,176.66666666666669A66.66666666666667,66.66666666666667,0,0,0,150.8960661723028,169.58749593552105" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M121,179.66666666666669A69.66666666666667,69.66666666666667,0,0,0,152.24138915005642,172.2689332526195L163.60189429553148,194.9121817081175A95,95,0,0,1,121,205Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M150.8960661723028,169.58749593552105A66.66666666666667,66.66666666666667,0,0,0,185.5252555399668,126.76114083069618" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3980b5" stroke="#ffffff" d="M152.24138915005642,172.2689332526195A69.66666666666667,69.66666666666667,0,0,0,188.4288920392653,127.51539216807751L212.94848914445265,133.88462568374206A95,95,0,0,1,163.60189429553148,194.9121817081175Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M185.5252555399668,126.76114083069618A66.66666666666667,66.66666666666667,0,0,0,186.8194566038865,120.59450691696162" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#679dc6" stroke="#ffffff" d="M188.4288920392653,127.51539216807751A69.66666666666667,69.66666666666667,0,0,0,189.7813321510614,121.0712597282249L214.79272566053825,125.09717235667031A95,95,0,0,1,212.94848914445265,133.88462568374206Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#95bbd7" d="M186.8194566038865,120.59450691696162A66.66666666666667,66.66666666666667,0,1,0,120.97905604932059,176.66666337679857" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#95bbd7" stroke="#ffffff" d="M189.7813321510614,121.0712597282249A69.66666666666667,69.66666666666667,0,1,0,120.97811357154002,179.6666632287545L120.96858407398089,209.99999506519785A100,100,0,1,1,219.72918490582975,125.89176037544243Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="121" y="100" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font: 800 15px Arial;" font-size="15px" font-weight="800" transform="matrix(1.5152,0,0,1.5152,-62.3333,-57.1818)" stroke-width="0.6599999999999999"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Sales</tspan></text><text x="121" y="120" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font: 14px Arial;" font-size="14px" transform="matrix(1.3889,0,0,1.3889,-47.0943,-43.5556)" stroke-width="0.7199999999999999"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">73,606.58</tspan></text></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Monthly Inventory Statistics</h5>
+                </div>
+                <div class="card-body" >
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="morris-donut-chart" style="height: 220px"><svg height="220" version="1.1" width="242" xmlns="" style="overflow: hidden; position: relative; left: -0.453125px; top: -0.40625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M121,176.66666666666669A66.66666666666667,66.66666666666667,0,0,0,150.8960661723028,169.58749593552105" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M121,179.66666666666669A69.66666666666667,69.66666666666667,0,0,0,152.24138915005642,172.2689332526195L163.60189429553148,194.9121817081175A95,95,0,0,1,121,205Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M150.8960661723028,169.58749593552105A66.66666666666667,66.66666666666667,0,0,0,185.5252555399668,126.76114083069618" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3980b5" stroke="#ffffff" d="M152.24138915005642,172.2689332526195A69.66666666666667,69.66666666666667,0,0,0,188.4288920392653,127.51539216807751L212.94848914445265,133.88462568374206A95,95,0,0,1,163.60189429553148,194.9121817081175Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M185.5252555399668,126.76114083069618A66.66666666666667,66.66666666666667,0,0,0,186.8194566038865,120.59450691696162" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#679dc6" stroke="#ffffff" d="M188.4288920392653,127.51539216807751A69.66666666666667,69.66666666666667,0,0,0,189.7813321510614,121.0712597282249L214.79272566053825,125.09717235667031A95,95,0,0,1,212.94848914445265,133.88462568374206Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#95bbd7" d="M186.8194566038865,120.59450691696162A66.66666666666667,66.66666666666667,0,1,0,120.97905604932059,176.66666337679857" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#95bbd7" stroke="#ffffff" d="M189.7813321510614,121.0712597282249A69.66666666666667,69.66666666666667,0,1,0,120.97811357154002,179.6666632287545L120.96858407398089,209.99999506519785A100,100,0,1,1,219.72918490582975,125.89176037544243Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="121" y="100" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font: 800 15px Arial;" font-size="15px" font-weight="800" transform="matrix(1.5152,0,0,1.5152,-62.3333,-57.1818)" stroke-width="0.6599999999999999"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Sales</tspan></text><text x="121" y="120" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font: 14px Arial;" font-size="14px" transform="matrix(1.3889,0,0,1.3889,-47.0943,-43.5556)" stroke-width="0.7199999999999999"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">73,606.58</tspan></text></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+<!--************ --> <!--**********************************
+            Footer start
+        ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Petrosoft Limited</a>
+                        2019
+                    </p>
+                    <p>Distributed by <a href="https://petrosoft.com.ng/" target="_blank">Petrosoft</a></p>
+                </div>
+            </div>
+            <!--**********************************
+            Footer end
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+        </div>
+         </div>
+        </div>
+
+        <!-- Required vendors -->
+        <script src="vendor/global/global.min.js"></script>
+        <script src="js/quixnav-init.js"></script>
+        <script src="js/custom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="js/plugins-init/sweetalert.init.js"></script>
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    function fetchProducts()
+            {
+                var json = { "action": "tanks_list", "user_id": 616, "token": "6161676986787Q6jheup2LqzakUfyEJGVA9W3mKicFs7SPdvC1" };
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://demo.station.cloud-sync.biz/api/pos.php",
+                    // The key needs to match your method's input parameter (case-sensitive).
+                    data: JSON.stringify(json),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    crossDomain:true,
+                    success: function(data){
+                        data.data.forEach(product => {
+                            //alert(product.name);
+                            var li = document.getElementById("tanks_table");
+                            
+                                li.innerHTML += '<div style="width: 177px; float: left; margin-right: 10px; margin-bottom:10px" ><table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr> <td colspan="3"><div style="border-radius:10px 10px 0 0;height: 119px; width: 179px; text-align:center; background-position: center bottom; background-repeat: no-repeat; background-image: url(images/tank2.png);"><table width="100%" border="0" ><tbody><tr><td height="114" align="center" valign="bottom"><div style="margin-left: 0px; margin-bottom:15px; width: 10px; height: 53px; background-color: #FFAEAE;"><div style="background-color: #C6C9CC; height: 99.5%"></div></td></tr> </tbody></table></div></td></tr><tr></tr><td colspan="3"><div style="background-color: #9DC86F; height:120px"><table width="100%" border="0"><tbody><tr><td align="center"><span><a href="tanks_edit.php?id=28" style="font-weight:bold;color:rgb(43, 39, 39)">'+product.name+'</a></span></td></tr><tr><td><table width="100%" border="0"><tbody><tr><td width="31%" bgcolor="#AACF81">Product</td><td width="69%"><strong>'+product.product_name+'</strong></td></tr><tr><td bgcolor="#AACF81">Capacity</td><td>'+product.capacity+' Litres</td></tr><tr><td bgcolor="#AACF81">Content</td><td>'+product.content+' Litres</td></tr><tr><td bgcolor="#AACF81">Level</td><td>0.50 %</td></tr></tbody></table></td></tr></tbody></table></div></td></tbody></table></div>';
+                                                   
+                            
+                        });
+                        //alert(data.message);
+                    },
+                    error: function(errMsg) {
+                        alert(errMsg);
+                    }
+                });
+            }
+
+            //callStationManager();
+            fetchProducts();
+</script>
