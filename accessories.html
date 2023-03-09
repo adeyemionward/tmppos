@@ -466,7 +466,7 @@
                                             
                                             <li role="presentation" class="disabled">
                                                 <a href="#step4" data-toggle="tab" aria-controls="step4"
-                                                    role="tab"><span class="round-tab">4</span> <i class="pl-4">Confirm
+                                                    role="tab"><span class="round-tab">3</span> <i class="pl-4">Confirm
                                                     </i></a>
                                             </li>
                                         </ul>
@@ -1312,6 +1312,7 @@ type: 'HEAD',
                                     '</div>'+
                                     '<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">'+
                                         '<div class="text-center">'+
+                                            '<input type="hidden"  value='+ product.id +' class="btn btn-outline-dark mt-auto product-id">'+
                                             '<input type="text"  value="1" class="btn btn-outline-dark mt-auto product-quantity" size="2">'+
                                             '<input type="submit" id="add-to-cart" value="Add to Cart" class="btn btn-outline-dark mt-auto add_cart" onClick="addToCart(this)">'+
                                         '</div>'+
@@ -1337,9 +1338,10 @@ function showCartTable() {
         var itemCount = 0;
         var grandTotal = 0;
 
-        var price = 0;
+        var rate = 0;
+        var product_id = 0;
         var quantity = 0;
-        var subTotal = 0;
+        var amount = 0;
 
         if (localStorage.getItem('shopping-cart')) {
           
@@ -1350,18 +1352,19 @@ function showCartTable() {
             shoppingCart.forEach(function(item) {
                 var cartItem = JSON.parse(item);
                 
-                price = parseFloat(cartItem.price);
+                rate = parseFloat(cartItem.rate);
+                product_id = parseFloat(cartItem.product_id);
                 quantity = parseInt(cartItem.quantity);
-                subTotal = price * quantity
+                amount = rate * quantity
 
                 cartRowHTML += "<tr>" +
-                    "<td>" + cartItem.productName + "</td>" +
-                    "<td class='text-center'>&#8358;" + price.toFixed(2) + "</td>" +
+                    "<td>" + cartItem.product_id + "</td>" +
+                    "<td class='text-center'>&#8358;" + rate.toFixed(2) + "</td>" +
                     "<td class='text-center'>" + quantity + "</td>" +
-                    "<td class='text-center'>&#8358;" + subTotal.toFixed(2) + "</td>" +
+                    "<td class='text-center'>&#8358;" + amount.toFixed(2) + "</td>" +
                     "</tr>";
 
-                grandTotal += subTotal;
+                grandTotal += amount;
                 
             });
            
@@ -1375,16 +1378,19 @@ function showCartTable() {
     function addToCart(element) {
         var productParent = $(element).closest('div.product-item');
 
-        var price = $(productParent).find('.price span').text();
+        var rate = $(productParent).find('.price span').text();
         var productName = $(productParent).find('.productname').text();
         var quantity = $(productParent).find('.product-quantity').val();
+        var product_id = $(productParent).find('.product-id').val();
         var cartItem = {
-            productName: productName,
-            price: price,
-            quantity: quantity
+            product_id: product_id,
+            rate: rate,
+            quantity: quantity,
+            amount: rate * quantity,
+
+
         };
         var cartItemJSON = JSON.stringify(cartItem);
-
         var cartArray = new Array();
         // If javascript shopping cart session is not empty
         if (localStorage.getItem('shopping-cart')) {
@@ -1395,12 +1401,11 @@ function showCartTable() {
         var cartJSON = JSON.stringify(cartArray);
         localStorage.setItem('shopping-cart', cartJSON);
         //alert(localStorage);
-        console.log(localStorage)
+        console.log(cartJSON)
         showCartTable();
         alert('Added to Cart');
     }
-    
-    function emptyCart() {
+     function emptyCart() {
 	if (localStorage.getItem('shopping-cart')) {
 		// Clear JavaScript localStorage by index
 		localStorage.removeItem('shopping-cart');
@@ -1427,11 +1432,13 @@ function showCartTable() {
         $("#catAcc").show();
     
     };
+    accesstoken1    = localStorage.getItem("accesstoken");
+    userId1         = localStorage.getItem("userId");
 
 let submitBtn1 = document.querySelector('#submitBtn1');
     submitBtn1.addEventListener('click', (e) => {
     e.preventDefault();
-    alert();
+    //alert();
 
 
             // CRUD operation 
@@ -1444,61 +1451,79 @@ let submitBtn1 = document.querySelector('#submitBtn1');
     let name1 = document.querySelector("#name1").value;
     let phone1 = document.querySelector("#phone1").value;
    
-alert(name1);
-    let arrData = {
-            action: "retail_sales_post",
-            user_id: 616,
-            station_id: 14,
-            token: "6161677413206X3Mk6Kwp2CvH1NBLGJsueoWUmVnQhr58bEygS",
-            date: "2023-01-27",
-            time: "14:19",
-            invoice: "",
-            shift_id: "257725",
-           customer:{
-            name: name1,
-            phone: phone1,
+//alert(name1);
+ 
+//alert('before');
 
-           }, items: [
-            {
-              product_id: "461",
-              dispenser_id: "298",
-              rate: 150.00,
-              quantity: 2,
-             amount:2,
-            
-        }
-    ],
-    payments: [
-        {
-            method: 'cash',
-            account_id: 1324,
-            amount: 2
-        }
-    ],
-    total:2,
-    paid: 1000.00,
-    change: 400.00
-};
-alert('before');
-arr.push(arrData);
-alert('after');      
+//alert('after');      
         // setLocalStorage();
         alert("added succesfully");
         e.preventDefault();
-        
+        let items = new Array();
+        shoppingCart2 = new Array();
+        //console.log(shoppingCart2);
+       // items.push(shoppingCart2);
         document.getElementById("main-wrapper").style.display = "none";
         document.getElementById("invoice-POS").style.display = "block";
+         let gg = localStorage.getItem('shopping-cart');
+        let shoppingCart2 = JSON.parse(["{\"product_id\":\"1\",\"rate\":\"640.00\",\"quantity\":\"1\",\"amount\":640}","{\"product_id\":\"1\",\"rate\":\"640.00\",\"quantity\":\"1\",\"amount\":640}"]);
+       console.log(gg);
+
+       console.log(shoppingCart2);
+    //get cart from localstorage
+   alert('shop');
+        // items.push(shoppingCart);
+   
+    //testing
+    let json = {
+    "action": "retail_mart_post",
+    "user_id": 616,
+    "station_id": 14,
+    "token": "6161678292504Q2ytVpnLXz1SfvA9WCw8TEDshjucHK4YZP5q6",
+    "date": "2023-01-23",
+    "time": "12:19",
+    "invoice": "2",
+    "shift_id": 257738,
+    "customer": {
+        "phone": "080123456785",
+        "name": "Peter Obi"
+    },
+    "items": [shoppingCart2],
+    "payments": [
+        {
+            "method": "bank",
+            "account_id": 1324,
+            "amount": 1000.00
+        }
+    ],
+    "total": 600.00,
+    "paid": 1000.00,
+    "change": 400.00
+} ;    
+  console.log(json);
+    $.ajax({
+        type: "POST",
+        url: "https://demo.station.cloud-sync.biz/api/pos.php",
+        // The key needs to match your method's input parameter (case-sensitive).
+        data: JSON.stringify(json),
+        contentType: "application/json; charset=utf-8",
+        success:  function(data){
+            localStorage.clear('userData');
+            //let arr = [];
         
-        Noti({
-            status: 'success',
-            content: 'Sale has been Posted',
-            timer: 3000,
-            animation: true,
-            progress: true,
-        }) ;
+            // arr.push(arrData);
+            //localStorage.setItem('userData', JSON.stringify(arr));
+            alert("added succesfully api");
+            alert(data.message);
+
+            // data api ends
+            console.log(data)
+        },
+    
+    });
 });
  
- 
+
  
 
 </script>
